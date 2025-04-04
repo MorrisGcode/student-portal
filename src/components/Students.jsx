@@ -2,7 +2,9 @@ import React from 'react'
 import { FaUserGraduate , FaHome, FaBook, FaClipboardList, FaCalendar, FaSignOutAlt } from "react-icons/fa";
 
 function Students() {
+
   return (
+
     
         <div className='bar'>
         <div className='sidebar'>
@@ -66,6 +68,7 @@ function Students() {
     </div>
  
   </div>    
+
   )
 }
 
