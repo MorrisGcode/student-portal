@@ -23,7 +23,7 @@ function App() {
       {userRole === "students" && <Students/>}
       {userRole === "teachers" && <Teachers />}
       {userRole === "admin"&& <Admin/>} */}
-      <Teachers/>
+      <Admin/>
     </div>
   );
 }
