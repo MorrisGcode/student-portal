@@ -3,7 +3,7 @@ import "./login.css";
 import { auth } from "/config/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword,} from "firebase/auth";
 import {db} from "/config/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 
 
 const Login = ({ setUser, setUserRole }) => {
@@ -18,20 +18,43 @@ const Login = ({ setUser, setUserRole }) => {
     try {
       let userCredential;
       if (isNewUser) {
+        //new user
         userCredential = await createUserWithEmailAndPassword(
           auth,
           email,
           password
         );
+        
+        // Store user data in Firestore
+        await addDoc(collection(db, "users"), {
+          uid: userCredential.user.uid,
+          name: name,
+          email: email,
+          role: role,
+          createdAt: new Date().toISOString()
+        });
+
         setUserRole(role);
       } else {
+        // Login existing user
         userCredential = await signInWithEmailAndPassword(
           auth,
           email,
           password
         );
-        const userRole = "student"; 
-        setUserRole(userRole);
+
+        // Get user role from Firestore
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("uid", "==", userCredential.user.uid));
+        const querySnapshot = await getDocs(q);
+        
+        if (!querySnapshot.empty) {
+          const userData = querySnapshot.docs[0].data();
+          setUserRole(userData.role);
+        } else {
+          console.error("No user data found");
+          setUserRole(""); 
+        }
       }
       setUser(userCredential.user);
     } catch (error) {
