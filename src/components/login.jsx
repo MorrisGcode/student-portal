@@ -10,7 +10,7 @@ const Login = ({ setUser, setUserRole }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState(""); 
-  const [role, setRole] = useState("student"); // Set a default role
+  const [role, setRole] = useState("student"); 
   const [isNewUser, setIsNewUser] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -23,7 +23,6 @@ const Login = ({ setUser, setUserRole }) => {
           email,
           password
         );
-        // Only set role when signing up
         setUserRole(role);
       } else {
         userCredential = await signInWithEmailAndPassword(
@@ -31,9 +30,7 @@ const Login = ({ setUser, setUserRole }) => {
           email,
           password
         );
-        // For login, we'll need to fetch the role from Firestore or another source
-        // This is just a placeholder - you'll need to implement role fetching
-        const userRole = "student"; // Replace with actual role fetching
+        const userRole = "student"; 
         setUserRole(userRole);
       }
       setUser(userCredential.user);
