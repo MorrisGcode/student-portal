@@ -1,6 +1,4 @@
 import { useState } from "react";
-
-import Login from "./components/login";
 import Teachers from "./components/Teachers";
 import Admin from "./components/Admin";
 import Students from "./components/Students";
@@ -20,14 +18,6 @@ function App() {
 
   return (
     <div>
-      <header>
-        <button onClick={logout}>Logout</button>
-      </header>
-      {userRole === "student" && <Students/>}
-      {userRole === "teacher" && <Teachers />}
-      {userRole === "admin" && <Admin/>}
-    </div>
-  );
-}
+     
 
 export default App;

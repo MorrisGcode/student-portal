@@ -1,7 +1,18 @@
+import React from "react";
+import { useState } from "react";
 import React from 'react'
 import { FaUserGraduate, FaSignOutAlt } from 'react-icons/fa'
 
 function Teachers() {
+  const [course, setCourse] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (text.trim()) {
+      dispatch({ type: "courses", payload: text });
+      setText("");
+    }
+  };
   return (
   
     <div className='bar'>
