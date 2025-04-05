@@ -18,14 +18,6 @@ function App() {
 
   return (
     <div>
-       {/* <header>
-        <button onClick={logout}>Logout</button>
-      </header>
-      {userRole === "students" && <Students/>}
-      {userRole === "teachers" && <Teachers />}
-      {userRole === "admin"&& <Admin/>} */}
-      <Courses/>
-      </div> 
-  );
- }
+     
+
 export default App;
