@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import React from 'react'
+import { Link } from 'react-router-dom';
 import { FaUserGraduate, FaSignOutAlt } from 'react-icons/fa'
 
 function Teachers() {
@@ -28,6 +28,8 @@ function Teachers() {
                     <li><a href="Students.jsx"> Student's Dashboard</a></li>
                     <br />
                     <li><a href="Teachers.jsx">Teacher's Dashboard</a></li>
+                    <br />
+                    <li><Link to="/courses">Courses</Link></li>
                     <br />
                     <li><a href="#">Reports</a></li>
                     <br />

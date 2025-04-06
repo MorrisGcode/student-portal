@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./login.css";
-import { auth } from "/config/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword,} from "firebase/auth";
-import {db} from "/config/firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../config/firebase"; 
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+
 
 
 const Login = ({ setUser, setUserRole }) => {
