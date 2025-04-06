@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import React from 'react'
+
 import { FaUserGraduate, FaSignOutAlt } from 'react-icons/fa'
 
 function Teachers() {
