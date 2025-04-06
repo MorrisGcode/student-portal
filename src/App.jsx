@@ -1,30 +1,38 @@
 import { useState } from "react";
-
-import Login from "./components/login";
 import Teachers from "./components/Teachers";
 import Admin from "./components/Admin";
 import Students from "./components/Students";
+import Login from "./components/login";
+import Courses from "./components/Courses";
+
+
 function App() {
-  // const [user, setUser] = useState(null);
-  // const [userRole, setUserRole] = useState(null);
-  // // Simple logout function
-  // const logout = () => {
-  //   setUser(null);
-  //   setUserRole(null);
-  // };
-  // if (!user) {
-  //   return <Login setUser={setUser} setUserRole={setUserRole} />;
-  // }
+  const [user, setUser] = useState(null);
+  const [userRole, setUserRole] = useState(null);
+
+  const logout = () => {
+    setUser(null);
+    setUserRole(null);
+  };
+
+  if (!user) {
+    return <Login setUser={setUser} setUserRole={setUserRole} />;
+  }
+
   return (
     <div>
-      {/* <header>
+{/* 
+     <header>
         <button onClick={logout}>Logout</button>
       </header>
       {userRole === "students" && <Students/>}
       {userRole === "teachers" && <Teachers />}
-      {userRole === "admin"&& <Admin/>} */}
+      {userRole === "admin"&& <Admin/>}   */}
       <Admin/>
+      
+  
     </div>
   );
 }
+
 export default App;

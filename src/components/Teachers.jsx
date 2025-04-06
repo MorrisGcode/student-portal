@@ -1,7 +1,17 @@
-import React from 'react'
+import React from "react";
+import { useState } from "react";
 import { FaUserGraduate, FaSignOutAlt } from 'react-icons/fa'
 
 function Teachers() {
+  const [course, setCourse] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (text.trim()) {
+      dispatch({ type: "courses", payload: text });
+      setText("");
+    }
+  };
   return (
   
     <div className='bar'>
@@ -36,27 +46,27 @@ function Teachers() {
             </nav>
     
             <div className="flex flex-col w-full p-6 space-y-6">
-  {/* Search Bar */}
+
   <div className="w-full flex justify-center">
     <input type="text" placeholder="Search..." className="w-3/4 p-3 border rounded-lg" />
     <button className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg">Search</button>
   </div>
 
-  {/* Responsive Grid for Cards */}
+
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {/* Finance Card */}
+
     <div className="bg-gray-100 p-6 rounded-lg shadow-md">
       <h3 className="text-lg font-bold">Finance</h3>
       <p>Total Payable: <span className="font-semibold">$10,000</span></p>
     </div>
 
-    {/* Courses Card */}
+
     <div className="bg-gray-100 p-6 rounded-lg shadow-md">
       <h3 className="text-lg font-bold">Courses</h3>
       <p>Web Development</p>
     </div>
 
-    {/* Upcoming Exams Card */}
+ 
     <div className="bg-gray-100 p-6 rounded-lg shadow-md">
       <h3 className="text-lg font-bold">Upcoming Exams</h3>
       <p>April 10 - Math</p>
