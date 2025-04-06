@@ -102,13 +102,13 @@ nav{
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* Two-thirds content, one-third sidebar */
+  grid-template-columns: 2fr 1fr; 
   gap: 20px;
 }
 
 .left-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 20px;
 }
 
@@ -118,12 +118,98 @@ nav{
   gap: 20px;
 }
 
-.rounded-lg {
-  border-radius: 12px;
-}
+
 .shadow-md {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.react-calendar {
+  width: 100%;
+  max-width: 100%;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: inherit;
+  width: 600px;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  border: none;
+
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.react-calendar__navigation button:disabled {
+  color: #ccc;
+}
+.react-calendar__month-view__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+.react-calendar__month-view__days__day {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+.react-calendar__month-view__days__day--weekend {
+  background-color: #e9ecef;
+}
+.react-calendar__month-view__days__day--neighboringMonth {
+  background-color: #f8f9fa;
+  color: #ccc;
+}
+.react-calendar__month-view__days__day--today {
+  background-color: #007bff;
+  color: white;
+}
+.react-calendar__month-view__days__day--selected {
+  background-color: #6f42c1;
+  color: white;
+}
+.react-calendar__tile {
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: #f8f9fa;
+  cursor: pointer;
+}
+.react-calendar__tile:hover {
+  background-color: #e9ecef;
+}
+.react-calendar__tile--active {
+  background-color: #6f42c1;
+  color: white;
+}
+.react-calendar__tile--active:hover {
+  background-color: #5a32a3;
+}
+.react-calendar__tile--now {
+  background-color: #007bff;
+  color: white;
+}
+
+.flex-16{
+height: 570px;
+}
+
+
+
+
+
+
+
 
 
 
