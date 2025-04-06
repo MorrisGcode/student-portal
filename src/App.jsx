@@ -3,9 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Teachers from "./components/Teachers";
 import Admin from "./components/Admin";
 import Students from "./components/Students";
+<<<<<<< HEAD
 import Courses from "./components/Courses";
 import Login from "./components/Login";
 import "./App.css"; // 
+=======
+import Login from "./components/login";
+import Courses from "./components/Courses";
+>>>>>>> 9513575a01b6f4f640e42be7907ebb243b918599
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,11 +21,14 @@ function App() {
     setUserRole(null);
   };
 
+
+
   if (!user) {
     return <Login setUser={setUser} setUserRole={setUserRole} />;
   }
 
   return (
+<<<<<<< HEAD
     <Router>
       <div>
         <header>
@@ -56,6 +64,16 @@ function App() {
         </Routes>
       </div>
     </Router>
+=======
+    <div>
+      <header>
+        <button onClick={logout}>Logout</button>
+      </header>
+      {userRole === "student" && <Students />}
+      {userRole === "teacher" && <Teachers />}
+      {userRole === "admin" && <Admin />}
+    </div>
+>>>>>>> 9513575a01b6f4f640e42be7907ebb243b918599
   );
 }
 
