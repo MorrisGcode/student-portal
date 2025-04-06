@@ -2,6 +2,7 @@ import { useState } from "react";
 import Teachers from "./components/Teachers";
 import Admin from "./components/Admin";
 import Students from "./components/Students";
+
 import Login from "./components/login";
 import Courses from "./components/Courses";
 
@@ -23,14 +24,15 @@ function App() {
   return (
     <div>
 
+
      <header>
         <button onClick={logout}>Logout</button>
       </header>
-      {/* {userRole === "students" && <Students/>}
+      {{userRole === "students" && <Students/>}
       {userRole === "teachers" && <Teachers />}
-      {userRole === "admin"&& <Admin/>}    */}
+      {userRole === "admin"&& <Admin/>}   }
       
-     <Students/>
+ 
      
 
       
@@ -38,5 +40,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

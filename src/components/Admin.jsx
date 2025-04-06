@@ -63,6 +63,7 @@ setFilteredEnrollments(enrollments.filter(enrollment => enrollment.name?.toLower
 };
 
   return (
+
     <div className="flex">
       <div className="w-64 h-screen bg-purple-200 p-6 fixed">
         <div className="flex flex-col items-center">
@@ -99,7 +100,6 @@ setFilteredEnrollments(enrollments.filter(enrollment => enrollment.name?.toLower
             <div className="w-16 h-16 border-4 border-blue-500 rounded-full flex items-center justify-center mx-auto">
     <span className="text-xl font-bold text-blue-500">{students.length}</span>
   </div>
-
 
             <ul className="text-gray-700 list-disc pl-5 space-y-1">
             {(searchQuery ? filteredStudents : students).map(student => (
@@ -143,4 +143,7 @@ setFilteredEnrollments(enrollments.filter(enrollment => enrollment.name?.toLower
   );
 }
 
+
 export default Admin;
+
+

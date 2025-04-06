@@ -16,6 +16,8 @@ import {
 function StudentDashboard() {
 
 
+
+
     
 
 
@@ -148,7 +150,6 @@ function StudentDashboard() {
     <a href="Courses.jsx" className="text-gray-700 hover:text-purple-600 underline">View Course</a>
     
 
-
   </div>
 </div>
 
@@ -178,8 +179,16 @@ function StudentDashboard() {
         </div>
       </main>
     </div>
+
     
   );
 }
 
 export default StudentDashboard;
+
+ 
+  </div>    
+
+  )
+}
+
