@@ -187,8 +187,8 @@ function StudentDashboard() {
 export default StudentDashboard;
 
  
-  </div>    
+  
 
-  )
-}
+  
+
 
