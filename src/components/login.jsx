@@ -32,7 +32,7 @@ const login=({ setUser, setUserRole }) => {
 
         setUserRole(role);
         setUser(userCredential.user);
-        navigate(`/${role}s`); // Redirect to role-specific page
+        navigate(`/${role}s`);
       } else {
         userCredential = await signInWithEmailAndPassword(auth, email, password);
 
