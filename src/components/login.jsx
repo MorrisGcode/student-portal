@@ -42,7 +42,7 @@ const Login = ({ setUser, setUserRole }) => {
           const userData = querySnapshot.docs[0].data();
           setUserRole(userData.role);
           setUser(userCredential.user);
-          navigate(`/${userData.role}s`); // Redirect based on user's role
+          navigate(`/${userData.role}s`); 
         } else {
           console.error("No user data found");
           setUserRole(""); 
