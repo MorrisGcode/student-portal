@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../config/firebase"; 
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 
-
-
 const Login = ({ setUser, setUserRole }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState(""); 
@@ -18,14 +18,8 @@ const Login = ({ setUser, setUserRole }) => {
     try {
       let userCredential;
       if (isNewUser) {
-        //new user
-        userCredential = await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+        userCredential = await createUserWithEmailAndPassword(auth, email, password);
         
-        // Store user data in Firestore
         await addDoc(collection(db, "users"), {
           uid: userCredential.user.uid,
           name: name,
@@ -35,15 +29,11 @@ const Login = ({ setUser, setUserRole }) => {
         });
 
         setUserRole(role);
+        setUser(userCredential.user);
+        navigate(`/${role}s`); // Redirect to role-specific page
       } else {
-        // Login existing user
-        userCredential = await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+        userCredential = await signInWithEmailAndPassword(auth, email, password);
 
-        // Get user role from Firestore
         const usersRef = collection(db, "users");
         const q = query(usersRef, where("uid", "==", userCredential.user.uid));
         const querySnapshot = await getDocs(q);
@@ -51,12 +41,13 @@ const Login = ({ setUser, setUserRole }) => {
         if (!querySnapshot.empty) {
           const userData = querySnapshot.docs[0].data();
           setUserRole(userData.role);
+          setUser(userCredential.user);
+          navigate(`/${userData.role}s`); // Redirect based on user's role
         } else {
           console.error("No user data found");
           setUserRole(""); 
         }
       }
-      setUser(userCredential.user);
     } catch (error) {
       console.error("Error during authentication", error);
       alert(error.message);

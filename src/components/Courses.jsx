@@ -1,12 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-<<<<<<< HEAD
 import { db } from "../config/firebase"; 
-=======
 
-import { db } from "/config/firebase"; 
 
->>>>>>> 9513575a01b6f4f640e42be7907ebb243b918599
  import { collection, doc, updateDoc, deleteDoc, getDocs } from "firebase/firestore";
 
 function Courses({ userType }) {
