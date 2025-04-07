@@ -3,49 +3,52 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Teachers from "./components/Teachers";
 import Admin from "./components/Admin";
 import Students from "./components/Students";
-<<<<<<< HEAD
 import Courses from "./components/Courses";
 import Login from "./components/Login";
-import "./App.css"; // 
-=======
-import Login from "./components/login";
-import Courses from "./components/Courses";
->>>>>>> 9513575a01b6f4f640e42be7907ebb243b918599
+import "./App.css"; 
+
+
 
 function App() {
   const [user, setUser] = useState(null);
   const [userRole, setUserRole] = useState(null);
+
+  
+  console.log('Current user role:', userRole);
 
   const logout = () => {
     setUser(null);
     setUserRole(null);
   };
 
-
-
-  if (!user) {
-    return <Login setUser={setUser} setUserRole={setUserRole} />;
-  }
-
   return (
-<<<<<<< HEAD
     <Router>
       <div>
         <header>
-          <button onClick={logout}>Logout</button>
+          {user && <button onClick={logout}>Logout</button>}
         </header>
         <Routes>
           <Route 
+            path="/login" 
+            element={!user ? <Login setUser={setUser} setUserRole={setUserRole} /> : <Navigate to="/" />} 
+          />
+          <Route 
             path="/students" 
-            element={userRole === "student" ? <Students user={user} /> : <Navigate to="/" />} 
+            element={userRole === "student" ? <Students user={user} /> : <Navigate to="/login" />} 
           />
           <Route 
             path="/teachers" 
-            element={userRole === "teacher" ? <Teachers user={user} /> : <Navigate to="/" />} 
+            element={userRole === "teacher" ? <Teachers user={user} /> : <Navigate to="/login" />} 
           />
           <Route 
             path="/admin" 
-            element={userRole === "admin" ? <Admin user={user} /> : <Navigate to="/" />} 
+            element={
+              userRole === "admin" ? (
+                <Admin user={user} />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            } 
           />
           <Route 
             path="/courses" 
@@ -54,8 +57,8 @@ function App() {
           <Route 
             path="/" 
             element={
-              userRole ? (
-                <Navigate to={`/${userRole}s`} replace /> 
+              user ? (
+                <Navigate to={userRole === "admin" ? "/admin" : `/${userRole}s`} replace />
               ) : (
                 <Navigate to="/login" replace />
               )
@@ -64,16 +67,6 @@ function App() {
         </Routes>
       </div>
     </Router>
-=======
-    <div>
-      <header>
-        <button onClick={logout}>Logout</button>
-      </header>
-      {userRole === "student" && <Students />}
-      {userRole === "teacher" && <Teachers />}
-      {userRole === "admin" && <Admin />}
-    </div>
->>>>>>> 9513575a01b6f4f640e42be7907ebb243b918599
   );
 }
 
