@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
@@ -5,7 +6,8 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 import { auth, db } from "../config/firebase"; 
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 
-const Login = ({ setUser, setUserRole }) => {
+
+const login=({ setUser, setUserRole }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -121,4 +123,4 @@ const Login = ({ setUser, setUserRole }) => {
   );
 };
 
-export default Login;
+export default login
