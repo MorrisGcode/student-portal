@@ -2,8 +2,10 @@ import { useState } from "react";
 import Teachers from "./components/Teachers";
 import Admin from "./components/Admin";
 import Students from "./components/Students";
-import Login from "./components/login";
 import Courses from "./components/Courses";
+import Login from "./components/login";
+import App.css from "./App.css";
+
 
 function App() {
   const [user, setUser] = useState(null);
