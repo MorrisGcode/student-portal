@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { db } from '/config/firebase';
+import { db } from '../config/firebase';
 import { collection, getDocs, query,where, } from 'firebase/firestore';
 import { FaUserGraduate, FaSignOutAlt } from "react-icons/fa";
 
