@@ -3,11 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Teachers from "./components/Teachers";
 import Admin from "./components/Admin";
 import Students from "./components/Students";
+import Login from "./components/Login";
 import Courses from "./components/Courses";
-import Login from "./components/login";
-import "./App.css"; 
-
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,6 +17,12 @@ function App() {
     setUser(null);
     setUserRole(null);
   };
+
+
+
+  if (!user) {
+    return <Login setUser={setUser} setUserRole={setUserRole} />;
+  }
 
   return (
     <Router>
@@ -34,25 +37,19 @@ function App() {
           />
           <Route 
             path="/students" 
-            element={userRole === "student" ? <Students user={user} /> : <Navigate to="/login" />} 
+            element={userRole === "student" ? <Students user={user} /> : <Navigate to="/" />} 
           />
           <Route 
             path="/teachers" 
-            element={userRole === "teacher" ? <Teachers user={user} /> : <Navigate to="/login" />} 
+            element={userRole === "teacher" ? <Teachers user={user} /> : <Navigate to="/" />} 
           />
           <Route 
             path="/admin" 
-            element={
-              userRole === "admin" ? (
-                <Admin user={user} />
-              ) : (
-                <Navigate to="/login" replace />
-              )
-            } 
+            element={userRole === "admin" ? <Admin user={user} /> : <Navigate to="/" />} 
           />
           <Route 
             path="/courses" 
-            element={<Courses userType={userRole} currentUser={user} />} 
+            element={<Courses userType={userRole} />} 
           />
           <Route 
             path="/" 
