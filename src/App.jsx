@@ -4,7 +4,7 @@ import Teachers from "./components/Teachers";
 import Admin from "./components/Admin";
 import Students from "./components/Students";
 import Courses from "./components/Courses";
-import Login from "./components/Login";
+import Login from "./components/login";
 import "./App.css"; 
 
 
