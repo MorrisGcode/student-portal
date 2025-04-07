@@ -4,7 +4,7 @@ import Admin from "./components/Admin";
 import Students from "./components/Students";
 import Courses from "./components/Courses";
 import Login from "./components/login";
-import App.css from "./App.css";
+import App from "./App.css";
 
 
 function App() {
