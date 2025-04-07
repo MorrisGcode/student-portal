@@ -15,9 +15,6 @@ function App() {
     setUserRole(null);
   };
 
-  if (!user) {
-    return <Login setUser={setUser} setUserRole={setUserRole} />;
-  }
 
   return (
     <Router>
@@ -28,16 +25,21 @@ function App() {
         <Routes>
           <Route 
             path="/students" 
-            element={userRole === "student" ? <Students /> : <Navigate to="/" />} 
-          />
-          <Route 
-            path="/teachers" 
-            element={userRole === "teacher" ? <Teachers /> : <Navigate to="/" />} 
-          />
-          <Route 
-            path="/admin" 
-            element={userRole === "admin" ? <Admin /> : <Navigate to="/" />} 
-          />
+            element={userRole === "student" ? <Students user={user} /> : <Navigate to="/login" />} 
+            />
+            <Route 
+              path="/teachers" 
+              element={userRole === "teacher" ? <Teachers user={user} /> : <Navigate to="/login" />} 
+            />
+            <Route 
+              path="/admin" 
+              element={
+                userRole === "admin" ? (
+                  <Admin user={user} />
+                ) : (
+                  <Navigate to="/login" replace />
+                )
+              } />
           <Route 
             path="/courses" 
             element={<Courses userType={userRole} />} 
@@ -45,8 +47,8 @@ function App() {
           <Route 
             path="/" 
             element={
-              userRole ? (
-                <Navigate to={`/${userRole}s`} replace />
+              user ? (
+                <Navigate to={userRole === "admin" ? "/admin" : `/${userRole}s`} replace />
               ) : (
                 <Navigate to="/login" replace />
               )

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import { FaChalkboardTeacher, FaUserGraduate, FaBook, FaClipboardList, FaSignOutAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaUserGraduate, FaSignOutAlt } from 'react-icons/fa'
+
 
 
 function Teachers() {

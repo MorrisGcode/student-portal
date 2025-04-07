@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   FaUserGraduate ,
   FaHome,
@@ -30,54 +31,52 @@ function StudentDashboard() {
        
         <nav className="flex-16 px-4 py-6">
           <div className="flex flex-col items-center">
-                    <FaUserGraduate className="text-4xl mb-4 text-purple-600 " />
-                    <h1><b>Student Dashboard </b></h1>
-                    <br />
-                    <br />
-         
-          <ul className="space-y-4">
-            <li>
-
-
-              <a href="#explore" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
-                <FaHome />
-                <span>Explore</span>
-              </a>
-            </li>
-            <li>
-              <a href="#Courses.jsx" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
-                <FaBookOpen />
-                <span>Courses</span>
-              </a>
-            </li>
-            <li>
-              <a href="#category" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
-                <FaLayerGroup />
-                <span>Category</span>
-              </a>
-            </li>
-            <li>
-              <a href="#payments" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
-                <FaMoneyBill />
-                <span>Payments</span>
-              </a>
-            </li>
-            <li>
-              <a href="#settings" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
-                <FaRegSun />
-                <span>Settings</span>
-              </a>
-            </li>
+          <FaUserGraduate className="text-4xl mb-4 text-purple-600" />
+            <h1><b>Student Dashboard</b></h1>
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-           <div className="absolute bottom-6 left-6">
-                    <FaSignOutAlt className="inline-block mr-2 text-gray-700" />
-                    <a href="Login.jsx" className="text-gray-700 hover:text-red-600">Logout</a>
-                  </div>
-          </ul>
+            <ul className="space-y-4">
+              <li>
+                <Link to="#explore" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
+                  <FaHome />
+                  <span>Explore</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/courses" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
+                  <FaBookOpen />
+                  <span>Courses</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="#category" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
+                  <FaLayerGroup />
+                  <span>Category</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="#payments" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
+                  <FaMoneyBill />
+                  <span>Payments</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="#settings" className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600">
+                  <FaRegSun />
+                  <span>Settings</span>
+                </Link>
+              </li>
+              <li className="mt-auto">
+                <button 
+                  onClick={handleLogout}
+                  className="flex items-center space-x-2 text-gray-600 hover:text-red-600"
+                >
+                  <FaSignOutAlt />
+                  <span>Logout</span>
+                </button>
+              </li>
+            </ul>
+    
           </div>
         </nav>
 
